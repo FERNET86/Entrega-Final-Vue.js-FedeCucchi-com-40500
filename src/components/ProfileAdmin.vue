@@ -35,11 +35,25 @@
         },
     },
     methods: {
-        closeSession() {
+      closeSession() {
+        this.updateLogout();
         this.$store.commit('setIsLogged', false);
         this.$store.commit('setUserLogged', {});
         this.$router.push('/');
-        },
+      },
+      updateLogout() {
+        fetch(`https://64a246f4b45881cc0ae4f33d.mockapi.io/api/v1/users/${this.getUserLogged.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ isloggedin: false }),
+        })
+          .then(response => response.json())
+          .catch((error) => {
+            console.error("No se pudo cerrar sesion: ", error);
+          });
+      },
   },
   };
   </script>
@@ -70,6 +84,5 @@
     margin-left: 5px;
   }
   
-  /* Otros estilos según tus necesidades */
   </style>
   

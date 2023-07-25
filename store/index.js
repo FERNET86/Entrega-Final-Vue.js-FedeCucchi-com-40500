@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     isLogged: false,
     userLogged: {},
+    products: {},
   },
   getters: {
     isLogged: (state) => {
@@ -14,7 +15,13 @@ export default new Vuex.Store({
     },
     userLogged: (state) => {
       return state.userLogged;
-    }
+    }, 
+    userLoggedIsEmpty: (state) => {
+      return Object.keys(state.userLogged).length === 0;
+    },
+    products: (state) => {
+      return state.products;
+    },
   },
   mutations: {
     incrementarCount: (state) => {
@@ -28,6 +35,9 @@ export default new Vuex.Store({
     },
     setUserLogged: (state, user) => {
       return state.userLogged = user;
+    },
+    setProducts: (state, products) => {
+      return state.products = products;
     },
   },
   actions: {

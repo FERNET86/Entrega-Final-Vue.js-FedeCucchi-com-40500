@@ -1,9 +1,12 @@
 <template>
     <ul class="header-bar">
     <p class="auth-button home-link"><router-link to="/">Home</router-link></p>
-    <p v-if="!getIsLogged" class="auth-button myp"><router-link :to="{ name: 'LoginForm' }">Login</router-link></p>
-    <p v-if="!getIsLogged" class="auth-button myp"><router-link :to="{ name: 'RegisterForm' }">Register</router-link></p>
+    <p v-if="!getIsLogged" class="auth-button myp"><router-link :to="{ name: 'LoginForm' }">Iniciar Sesion</router-link></p>
+    <p v-if="!getIsLogged" class="auth-button myp"><router-link :to="{ name: 'RegisterForm' }">Registrar</router-link></p>
     <p v-if="getIsLogged" class="auth-button myp"><router-link :to="{ name: 'MyProfile' }">Mi Perfil</router-link></p>
+    <p v-if="getIsLogged" class="auth-button myp"><router-link :to="{ name: 'MisPedidos' }">Mis Pedidos</router-link></p>
+    <p v-if="getIsLogged && getIsAdmin" class="auth-button myp"><router-link :to="{ name: 'ListadoPedidos' }">Listado de Pedidos</router-link></p>
+    <p v-if="getIsLogged && getIsAdmin" class="auth-button myp"><router-link :to="{ name: 'AdminStock' }">Administrar stock</router-link></p>
     </ul>
 </template>
 
@@ -13,6 +16,9 @@ export default {
     computed: {
         getIsLogged() {
             return this.$store.getters.isLogged;
+        },
+        getIsAdmin() {
+            return this.$store.getters.userLogged.admin;
         },
     },
 };

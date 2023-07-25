@@ -2,7 +2,7 @@
   <div> 
     <ProfileAdmin v-if="getIsAdmin" />
     <ProfileSingle v-else />
-    <p class="pie"> </p>
+    <p class="pie"></p>
   </div>
   </template>
   
@@ -49,7 +49,7 @@
     margin-left: 5px;
   }
   .pie{
-    height: 330px; 
+    height: 350px; 
   }
 
   </style>

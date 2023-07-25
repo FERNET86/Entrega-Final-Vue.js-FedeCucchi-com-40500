@@ -12,10 +12,10 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in cartItemsSummary" :key="index">
-          <td>{{ item.product.name }}</td>
+          <td>{{ item.product.titulo }}</td>
           <td>{{ item.quantity }}</td>
-          <td>{{ item.product.price }}</td>
-          <td>{{ item.quantity * item.product.price }}</td>
+          <td>{{ item.product.precio }}</td>
+          <td>{{ item.quantity * item.product.precio }}</td>
           <td>
             <button @click="removeFromCart(item.product.id)" class="remove-button">Eliminar</button>
           </td>
