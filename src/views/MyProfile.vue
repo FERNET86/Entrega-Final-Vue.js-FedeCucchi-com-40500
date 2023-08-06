@@ -49,7 +49,7 @@
     margin-left: 5px;
   }
   .pie{
-    height: 350px; 
+    height: 300px; 
   }
 
   </style>
